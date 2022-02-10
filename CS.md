@@ -61,6 +61,42 @@ https://github.com/binghe819/tech-interview
 
   ---
 </details>
+
+
+#### Q. Generic은 왜 Wrapper Class만 사용하는가?
+<details>
+  <summary>답변</summary>
+
+  ---
+
+  * 우선 Generic을 사용하는 가장 큰 이유가 타입 체크를 위함이다. 즉, 컴파일 타임시에만 타입 체크 및 제약을 적용하고, 자동 형변환을 해준다. 그리고 컴파일 된 `.class` 파일에는 실제로 제네릭 정보가 전혀 없다. (소거됨)
+  * 다르게 말하면 런타임엔 Generic으로 주어진 타입으로 형변환 된 Object만이 존재할 수 있다. 그러기 때문에 Primitive 타입은 Object가 될 수 없기에 불가능한 것.
+  * 쉽게 말하면 **Generic 특성상 Object로 Convertable한 타입만 가능하다.**
+  * [참고 1](https://www.quora.com/Why-is-it-impossible-to-use-primitive-types-as-a-type-parameter-in-Java), [참고 2](https://stackoverflow.com/questions/2721546/why-dont-java-generics-support-primitive-types)
+
+  ---
+</details>
+
+#### Q. 생성자 vs 정적 팩토리 메서드
+<details>
+  <summary>답변</summary>
+
+  ---
+
+  * 생성자와 정적 팩토리 메서드의 차이는 정적 팩토리 메서드의 장단점으로 알 수 있다.
+  * 정적 팩토리 메서드의 장점
+    * 이름을 가질 수 있다.
+    * **반드시 새로운 객체를 만들 필요가 없다. 불변 객체를 캐싱하거나, Validation을 처리할 수 있다.**
+    * 반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다.
+    * 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.
+    * static 팩토리 메서드를 작성하는 시점에는 반환할 객체의 클래스가 존재하지 않아도 된다.
+  * 정적 팩토리 메서드의 단점
+    * 상속하려면 public, protected 생성자가 필요하니, 정적 팩토리 메서드만 제공하면 하위 클래스를 만들 수 없다.
+    * static 팩토리 메서드는 프로그래머가 찾기 어렵다.
+
+  ---
+</details>
+
 ### Spring
 
 ### Database
